@@ -1,0 +1,52 @@
+dataset_name: solar
+check_dataset: False
+data_root_dir: '~/git/solari2i/data/solar-data2/'
+
+relevant_timestamp_path_train: '../relevant_timestamps/relevant_timestamps_short_train.txt'
+relevant_timestamp_path_test: '../relevant_timestamps/relevant_timestamps_short_test.txt'
+
+data_size: 512
+
+n_workers: 4 # 2
+batch_size: 3 # 128
+n_gf: 4 # 32
+n_df: 4 # 32
+ks_gf: 5
+ks_gd: 3
+
+input_channel_combination: [193, 304, 1600] #[94, 131, 171, 193, 211, 304, 335, 1600, 4500] # [171, 193, 304]
+
+n_epochs: 1 # 200
+
+report_freq: 1
+log_freq: 1
+plot_freq: 1
+save_freq: 1 # off
+val_freq: 10 # off
+patience: 20 # epochs, early stopping
+
+show_plots: True
+
+
+logscale_input: [False,False,False]
+sqrt_input: [False,False,False]
+saturation_clip_input: [True,True,True]
+saturation_lower_limit_input: [1,1,1]
+saturation_upper_limit_input: [400000,150000,30000]
+
+logscale_target: False
+saturation_clip_target: False
+saturation_lower_limit_target: -5000
+saturation_upper_limit_target: 5000
+
+lambda_CC: 5.0
+lambda_SSIM: 5.0
+
+
+### testing only ###
+n_test_exports: 1
+export_plots: True
+export_npz_fake: False
+export_npz_target: False
+skip_existing_folders: True
+skip_best_checkpoints: True

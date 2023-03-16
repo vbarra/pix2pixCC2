@@ -1,0 +1,12 @@
+This explains how the files named fileListYYYY.txt are generated.
+The files are generated on the hpc2 server where the sdo dataset
+is available to us. We connect to the server via ssh. It depends
+on your ssh config how the server is called. Here it is "hpc2".
+
+The following example creates the file fileList2013.txt in your 
+home directory on the server:
+
+ssh hpc2   
+cd /storage/databanks/machinelearning/NASA-Solar-Dynamics-Observatory-Atmospheric-Imaging-Assembly/
+cd 2013/
+find . -type f > ~/fileList2013.txt
